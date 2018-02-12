@@ -1,13 +1,18 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 10
-        targetSdkVersion 22
-        versionCode 507
-        versionName '5.0.7'
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 6050
+        versionName '6.0.5'
+
+        resValue "string", "aboutlibrary_lib_version", "${versionName}"
+        resValue "string", "ext_support_lib_version", "${rootProject.ext.supportLibVersion}"
     }
 
     buildTypes {
@@ -24,10 +29,20 @@ android {
     }
 }
 apply from: 'gradle-mvn-push.gradle'
+apply from: 'gradle-jcenter-push.gradle'
 
 dependencies {
-    compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:cardview-v7:22.2.0'
-    compile 'com.android.support:recyclerview-v7:22.2.0'
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation "com.android.support:cardview-v7:${rootProject.ext.supportLibVersion}"
+    implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibVersion}"
+
+    // used to provide out of the box icon font support. simplifies development,
+    // and provides scalable icons. the core is very very light
+    // https://github.com/mikepenz/Android-Iconics
+    compile 'com.mikepenz:iconics-core:3.0.2@aar'
+
+    // used to fill the RecyclerView with the items
+    // and provides single and multi selection, expandable items
+    // https://github.com/mikepenz/FastAdapter
+    compile 'com.mikepenz:fastadapter:3.2.4@aar'
 }

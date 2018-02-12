@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-	<string name="define_int_systembartint"/>
+	<string name="define_int_systembartint">year;owner</string>
 	<!-- Author section -->
 	<string name="library_systembartint_author">Jeff Gilfelt</string>
 	<string name="library_systembartint_authorWebsite">http://jeffgilfelt.com/</string>
@@ -14,8 +14,10 @@
 	<string name="library_systembartint_isOpenSource">true</string>
 	<string name="library_systembartint_repositoryLink">https://github.com/jgilfelt/SystemBarTint</string>
 	<!-- ClassPath for autoDetect section -->
-	<string name="library_systembartint_classPath">com.readystatesoftware.systembartint</string>
+	<string name="library_systembartint_classPath">com.readystatesoftware.systembartint.SystemBarTintManager</string>
 	<!-- License section -->
 	<string name="library_systembartint_licenseId">apache_2_0</string>
 	<!-- Custom variables section -->
+	<string name="library_systembartint_owner">readyState Software Limited</string>
+	<string name="library_systembartint_year">2013</string>
 </resources>
